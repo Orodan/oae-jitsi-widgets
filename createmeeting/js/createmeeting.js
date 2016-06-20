@@ -35,8 +35,9 @@ define(['jquery', 'oae.core'], function ($, oae) {
 
             // Create the meeting
             oae.api.meetingJitsi.createMeeting(meetingName, meetingDescription, meetingChat, meetingContactList, visibility, [], members, function (err, data) {
+
                 // If the creation succeeded, redirect to the meeting profile
-                if (!err) window.localtion = data.profilePath;
+                if (!err) window.location = data.profilePath;
                 else {
                     // Re-enable the form
                     $('#createmeeting-jitsi-form *', $rootel).prop('disabled', false);
