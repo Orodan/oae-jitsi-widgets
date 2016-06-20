@@ -18,8 +18,39 @@ define(['jquery', 'oae.core'], function ($, oae) {
         // Variable that keeps track of the current context
         var contextData = null;
 
+        /**
+         * Create the meeting. When the meeting has been created successfully, the user will be redirected
+         * to the created meeting
+         */
         var createMeeting = function () {
 
+            // Disable the form
+            $('#createmeeting-jitsi-form *', $rootel).prop('disabled', true);
+            
+            // Get user meeting data
+            var meetingName = $.trim($('#createmeeting-jitsi-name', $rootel).val());
+            var meetingDescription = $.trim($('#createmeeting-jitsi-description', $rootel).val());
+            var meetingChat = $('#createmeeting-jitsi-chat').is(":checked").toString();
+            var meetingContactList = $('#createmeeting-jitsi-contact-list').is(":checked").toString();
+
+            // Create the meeting
+            oae.api.meetingJitsi.createMeeting(meetingName, meetingDescription, meetingChat, meetingContactList, visibility, [], members, function (err, data) {
+                // If the creation succeeded, redirect to the meeting profile
+                if (!err) window.localtion = data.profilePath;
+                else {
+                    // Re-enable the form
+                    $('#createmeeting-jitsi-form *', $rootel).prop('disabled', false);
+
+                    oae.api.util.notification(
+                        oae.api.i18n.translate('__MSG__MEETING_NOT_CREATED__', 'createmeeting'),
+                        oae.api.i18n.translate('__MSG__MEETING_CREATE_FAIL__', 'createmeeting'),
+                        'error'
+                    );
+                }
+            });
+
+            // Avoid default form subit behavior
+            return false;
         };
 
         var setUpReset = function () {
