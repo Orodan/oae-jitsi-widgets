@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label for="editmeeting-jitsi-description" class="control-label"><h4>__MSG__MEETING_DESCRIPTION__</h4></label>
-        <textarea id="editmeeting-jitsi-description" class="form-control required maxlength-medium" name="editmeeting-jitsi-description" placeholder="__MSG__WHAT_IS_YOUR_MEETING_ABOUT__">${meeting.description|encodeForHTML}</textarea>
+        <textarea id="editmeeting-jitsi-description" class="form-control maxlength-medium" name="editmeeting-jitsi-description" placeholder="__MSG__WHAT_IS_YOUR_MEETING_ABOUT__">${meeting.description|encodeForHTML}</textarea>
     </div>
     <div class="form-group editmeeting-jitsi-chat">
         <input type="checkbox" id="editmeeting-jitsi-chat" ${meeting.chat == 'true'? 'checked': ''}>&nbsp;
