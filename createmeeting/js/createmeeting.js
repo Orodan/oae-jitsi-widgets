@@ -130,8 +130,7 @@ define(['jquery', 'oae.core'], function ($, oae) {
                 // Update visibility for the meeting
                 visibility = data.visibility;
 
-                members = _.pluck(data.selectedPrincipalItems, 'sharedId');
-                // members = _.without(data.shared, oae.data.me.id);
+                members = _.pluck(data.selectedPrincipalItems, 'shareId');
 
                 // Add the permissions summary
                 $('#createmeeting-jitsi-permissions', $rootel).html(data.summary);
