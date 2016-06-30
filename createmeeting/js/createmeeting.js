@@ -126,10 +126,12 @@ define(['jquery', 'oae.core'], function ($, oae) {
 
             // Event that will be triggered when permission changes have been made in the `setpermissions` widget
             $(document).on('oae.setpermissions.changed.' + setPermissionsId, function (ev, data) {
-                //Update visibility for the meeting
+
+                // Update visibility for the meeting
                 visibility = data.visibility;
 
-                members = _.without(data.shared, oae.data.me.id);
+                members = _.pluck(data.selectedPrincipalItems, 'sharedId');
+                // members = _.without(data.shared, oae.data.me.id);
 
                 // Add the permissions summary
                 $('#createmeeting-jitsi-permissions', $rootel).html(data.summary);
