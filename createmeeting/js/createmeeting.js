@@ -181,8 +181,8 @@ define(['jquery', 'oae.core'], function ($, oae) {
             });
 
             $('#createmeeting-jitsi-modal', $rootel).on('shown.bs.modal', function () {
-                $('#createmeeting-description', $rootel).val('');
-                $('#createmeeting-name', $rootel).focus();
+                // Set focus to the collabdoc name field
+                $('#createmeeting-jitsi-name', $rootel).focus();
 
                 //Initiate the permissions widget
                 setUpSetPermissions();
