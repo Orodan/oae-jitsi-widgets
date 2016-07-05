@@ -52,7 +52,7 @@ define(['jquery', 'oae.core', 'jquery.history'], function($, oae) {
                         'icon': 'fa-trash-o',
                         'label': oae.api.i18n.translate('__MSG__DELETE__', 'meetings-jitsi-library'),
                         'trigger': 'oae-trigger-deleteresources',
-                        'data': {'resourceType': 'meeting'}
+                        'data': {'resourceType': 'meeting-jitsi'}
                     });
                 }
             }
@@ -99,6 +99,7 @@ define(['jquery', 'oae.core', 'jquery.history'], function($, oae) {
                     // Let the template know whether or not the current list
                     // is a main list or a search list, as different paging
                     // keys need to be provided for each
+
                     data.query = query;
                     data.displayOptions = {
                         'showCheckbox': true
