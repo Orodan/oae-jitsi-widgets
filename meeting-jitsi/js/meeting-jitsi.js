@@ -54,8 +54,7 @@ define(['jquery', 'oae.core', 'JitsiMeetExternalAPI'], function ($, oae, JitsiMe
          */
         var renderMeeting = function () {
 
-            var domain = "https://192.168.99.100";
-            // var domain = "https://rendez-vous.renater.fr";
+            var domain = oae.api.config.getValue('oae-jitsi', 'server', 'host');
             var room = "JitsiMeetAPIExample";
             var width = 700;
             var height = 700;
