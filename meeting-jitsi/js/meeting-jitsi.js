@@ -20,7 +20,7 @@ define(['jquery', 'oae.core', 'JitsiMeetExternalAPI'], function ($, oae, JitsiMe
                 if (err) throw new Error(err.code, err.msg);
 
                 user = me;
-                api.executeCommand('displayName', ['toto']);
+                api.executeCommand('displayName', [user.displayName]);
             });
 
         };
@@ -45,8 +45,8 @@ define(['jquery', 'oae.core', 'JitsiMeetExternalAPI'], function ($, oae, JitsiMe
         var setUpRoomOptions = function () {
             setUpUserName();
 
-            if (widgetData.chat === 'true') toggleChat();
-            if (widgetData.contactList === 'true') toggleContactList();
+            if (widgetData.chat === true) toggleChat();
+            if (widgetData.contactList === true) toggleContactList();
         };
 
         /**
