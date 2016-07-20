@@ -29,11 +29,11 @@
         <textarea id="editmeeting-jitsi-description" class="form-control maxlength-medium" name="editmeeting-jitsi-description" placeholder="__MSG__WHAT_IS_YOUR_MEETING_ABOUT__">${meeting.description|encodeForHTML}</textarea>
     </div>
     <div class="form-group editmeeting-jitsi-chat">
-        <input type="checkbox" id="editmeeting-jitsi-chat" ${meeting.chat == 'true'? 'checked': ''}>&nbsp;
+        <input type="checkbox" id="editmeeting-jitsi-chat" ${meeting.chat == true? 'checked': ''}>&nbsp;
         <label for="editmeeting-jitsi-chat" class="control-label"><h4>__MSG__ACTIVATE_MEETING_CHAT__</h4></label>
     </div>
     <div class="form-group editmeeting-jitsi-contact-list">
-        <input type="checkbox" id="editmeeting-jitsi-contact-list" ${meeting.contactList == 'true'? 'checked': ''}>&nbsp;
+        <input type="checkbox" id="editmeeting-jitsi-contact-list" ${meeting.contactList == true? 'checked': ''}>&nbsp;
         <label for="editmeeting-jitsi-contact-list" class="control-label"><h4>__MSG__ACTIVATE_CONTACT_LIST__</h4></label>
     </div>
 --></div>
